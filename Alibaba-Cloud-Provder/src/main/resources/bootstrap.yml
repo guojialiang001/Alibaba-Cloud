@@ -1,0 +1,14 @@
+dubbo:
+  scan:
+    # dubbo 服务扫描基准包
+    base-packages: org.springframework.cloud.alibaba.dubbo.bootstrap
+  protocol:
+    # dubbo 协议
+    name: dubbo
+    port: 20881
+  spring:
+  cloud:
+    nacos:
+      # Nacos 服务发现与注册配置
+      discovery:
+       server-addr: 121.4.121.80:8848

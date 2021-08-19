@@ -1,0 +1,16 @@
+
+dubbo:
+  cloud:
+    subscribed-services: Alibaba-Cloud-Provder
+    spring:
+  protocol:
+    id: dubbo
+    host: 192.168.0.66
+  application:
+    id: Alibaba-Cloud-Consumer
+    name: Alibaba-Cloud-Consumer
+cloud:
+  nacos:
+    # Nacos 服务发现与注册配置
+    discovery:
+      server-addr: 121.4.121.80:8848
