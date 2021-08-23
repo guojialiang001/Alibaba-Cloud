@@ -5,10 +5,13 @@ dubbo:
   protocol:
     # dubbo 协议
     name: dubbo
-    port: 20881
+    port: -1
   spring:
   cloud:
     nacos:
       # Nacos 服务发现与注册配置
       discovery:
        server-addr: 121.4.121.80:8848
+    sentinel:
+      transport:
+        dashboard: localhost:8080

@@ -1,0 +1,61 @@
+#规划GateWay的服务端口
+server:
+  port: 8888
+##规划gateWay注册到到nacos上的服务应用名称
+
+
+dubbo:
+  scan:
+    # dubbo 服务扫描基准包
+    base-packages: org.springframework.cloud.alibaba.dubbo.bootstrap
+  protocol:
+    # dubbo 协议
+    name: dubbo
+    port: -1
+
+spring:
+  application:
+    name: Alibaba-Gateway-Api
+  cloud:
+
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+    nacos:
+      discovery:
+        #gateway工程注册到nacos上的地址
+        server-addr: 121.4.121.80:8848
+    gateway:
+      enabled: true
+      discovery:
+        locator:
+      # route ID 转化小写
+          lower-case-service-id: true
+      routes:
+        - id: foo-service-route
+          uri: http://localhost:9090/
+          predicates:
+            - Path=/demo/**
+        - id: open-feign-api
+          uri: http://localhost:9090/
+          predicates:
+            - Path=/feign/**
+        - id: httpbin-route
+          uri: https://httpbin.org
+          predicates:
+            - Path=/httpbin/**
+          filters:
+            - RewritePath=/httpbin/(?<segment>.*), /$\{segment}
+
+  profiles:
+    active: xxxxx  # 具体的gateway配置
+#开启acutor端点
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      #打开端点详情
+      show-details: always

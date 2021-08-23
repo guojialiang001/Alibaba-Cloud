@@ -5,7 +5,8 @@ dubbo:
     spring:
   protocol:
     id: dubbo
-    host: 192.168.0.66
+    host: 192.168.0.80
+    port: -1
   application:
     id: Alibaba-Cloud-Consumer
     name: Alibaba-Cloud-Consumer

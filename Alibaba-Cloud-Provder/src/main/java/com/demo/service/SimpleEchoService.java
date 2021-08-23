@@ -8,4 +8,20 @@ public class SimpleEchoService implements EchoapiService {
     public String echodubbo(String s) {
         return "[ECHO] " + s;
     }
+
+    @Override
+    public String echodubbohello(String s) {
+        return "[ECHO] hello" + s;
+    }
+
+
 }
+
+
+
+
+
+
+
+
+

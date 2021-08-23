@@ -10,11 +10,12 @@
     <modules>
         <module>Alibaba-Cloud-Consumer</module>
         <module>Alibaba-Cloud-Provder</module>
-<!--        <module>Alibaba-Gateway-Api</module>-->
         <module>Alibaba-Cloud-Common</module>
 
       <module>dubbo-sample-api</module>
-  </modules>
+        <module>Alibaba-Gateway-Api</module>
+        <module>Alibaba-Cloud-Config</module>
+    </modules>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
@@ -38,10 +39,7 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+
         <!--引入配置中心阿里巴巴-->
 
         <!--引入注册中心阿里巴巴-->
@@ -58,6 +56,11 @@
             <optional>true</optional>
         </dependency>
 
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+
 
 
         <!-- Spring Cloud OpenFeign -->
@@ -66,15 +69,15 @@
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.alibaba.cloud</groupId>
-            <artifactId>spring-cloud-starter-dubbo</artifactId>
-        </dependency>
+
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+
+
+
     </dependencies>
 
     <dependencyManagement>

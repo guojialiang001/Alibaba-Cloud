@@ -2,7 +2,6 @@ package com.demo;
 
 
 import com.demo.service.EchoapiService;
-import com.demo.service.SimpleEchoService;
 import org.apache.dubbo.config.annotation.DubboReference;
 import org.apache.dubbo.config.annotation.DubboService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,10 +19,10 @@ public class RestTemplateController {
 
 
 
-    @DubboReference(group = "SimpleEchoService2")
+    @DubboReference(check = false,group = "SimpleEchoService2")
     private EchoapiService simpleEchoService2;
 
-    @DubboReference(group = "SimpleEchoService")
+    @DubboReference(check = false,group = "SimpleEchoService")
     private EchoapiService simpleEchoService;
 
 
@@ -52,5 +51,14 @@ public class RestTemplateController {
     public String echo2(@PathVariable String message) {
         return simpleEchoService2.echodubbo(message);
     }
+
+
+    @GetMapping("/demo/hello/{message}")
+    public String echodubbohello(@PathVariable String message) {
+        return simpleEchoService2.echodubbohello(message);
+    }
+
+
+
 
 }

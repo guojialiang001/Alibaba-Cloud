@@ -8,4 +8,10 @@ public class SimpleEchoService2 implements EchoapiService {
     public String echodubbo(String s) {
         return "[ECHO]2323 " + s;
     }
+
+
+    @Override
+    public String echodubbohello(String s) {
+        return "[ECHO] hello2" + s;
+    }
 }
